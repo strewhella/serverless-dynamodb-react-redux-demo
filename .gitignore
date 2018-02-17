@@ -1,5 +1,6 @@
 .serverless
-/.webpack/*.*
+.webpack
+test/**/*.js
 
 # Logs
 logs

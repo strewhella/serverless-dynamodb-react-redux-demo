@@ -1,11 +1,11 @@
 [
     {
-        "clientId": "3a0f8f49-331c-4ebc-93e2-b0d0b33b4062",
+        "clientId": "apple",
         "sku": "standout",
         "discountedPrice": 299.99
     },
     {
-        "clientId": "7b42c533-6288-40e9-ad46-e7165a2fedfb",
+        "clientId": "ford",
         "sku": "standout",
         "discountedPrice": 309.99
     }

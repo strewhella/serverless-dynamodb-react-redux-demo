@@ -83,12 +83,24 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handlers/handler.hello
+  getClients:
+    handler: handlers/getClients.default
     events:
       - http:
-           path: /hello
+           path: /api/client
            method: GET
+  
+  # getPricingRulesByClientId:
+  #   handler: handlers/getPricingRulesByClientId.default
+  #   events:
+  #     - http:
+  #          path: /api/pricing/{clientId}
+  #          method: GET
+  #          request:
+  #           parameters:
+  #             paths:
+  #               clientId: true
+
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
