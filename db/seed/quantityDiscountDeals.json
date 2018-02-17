@@ -1,0 +1,14 @@
+[
+    {
+        "clientId": "4ba96ae5-ff75-4d5d-b629-5c629164bd90",
+        "sku": "premium",
+        "minimumQuantity": 4,
+        "discountedPrice": 379.99
+    },
+    {
+        "clientId": "7b42c533-6288-40e9-ad46-e7165a2fedfb",
+        "sku": "premium",
+        "minimumQuantity": 3,
+        "discountedPrice": 389.99
+    }
+]

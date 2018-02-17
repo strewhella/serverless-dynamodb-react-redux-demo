@@ -1,0 +1,14 @@
+[
+    {
+        "sku": "classic",
+        "clientId": "c25b6488-bf25-4fa6-8328-49a8b0016cfa",
+        "purchasedQuantity": 3,
+        "chargedQuantity": 2
+    },
+    {
+        "sku": "classic",
+        "clientId": "7b42c533-6288-40e9-ad46-e7165a2fedfb",
+        "purchasedQuantity": 5,
+        "chargedQuantity": 4
+    }
+]

@@ -1,0 +1,32 @@
+{
+    "name": "checkout",
+    "version": "1.0.0",
+    "description": "",
+    "main": "handler.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start-offline": "sls offline",
+        "start-dynamodb": "sls dynamodb start",
+        "start": "npm-run-all start-dynamodb start-offline"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/aws-lambda": "0.0.32",
+        "aws-lambda": "^0.1.2",
+        "serverless-webpack": "^4.3.0",
+        "ts-loader": "^3.5.0",
+        "webpack": "^3.11.0"
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.2",
+        "serverless-dynamodb-local": "^0.2.27",
+        "serverless-offline": "^3.17.0",
+        "uuid": "^3.2.1"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true
+    }
+}
