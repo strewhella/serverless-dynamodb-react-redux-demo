@@ -9,7 +9,23 @@ export class ActionCreators {
         };
     };
 
-    selectClient = (client: Client) => {
+    getProducts = () => {
+        return {
+            type: 'getProducts',
+            method: 'GET',
+            url: '/api/product'
+        };
+    };
+
+    getPricingDeals = (clientId: string) => {
+        return {
+            type: 'getPricingDeals',
+            method: 'GET',
+            url: `/api/pricing-deal/${clientId}`
+        };
+    };
+
+    selectClient = (client?: Client) => {
         return {
             type: 'selectClient',
             client

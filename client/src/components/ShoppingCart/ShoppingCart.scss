@@ -1,0 +1,15 @@
+.ShoppingCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ShoppingCart-cart {
+        min-width: 400px;
+        max-width: 500px;
+        padding: 10px;
+    }
+
+    .ShoppingCart-sign-out {
+        float: right;
+    }
+}

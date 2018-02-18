@@ -26,9 +26,9 @@ export class ClientSelector extends React.Component<ClientSelectorProps> {
                 >
                     <Container textAlign="center">
                         <div>
-                            <Header as="h2" icon>
+                            <Header as="h1" icon>
                                 <Icon name="users" circular />
-                                <Header.Content>Choose a client</Header.Content>
+                                <Header.Content>Login</Header.Content>
                             </Header>
                         </div>
                         <Button.Group>

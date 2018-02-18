@@ -7,5 +7,5 @@ export class AppState {
     getClients: HttpResponse<Array<Client>>;
     getProducts: HttpResponse<Array<Product>>;
     getPricingDeals: HttpResponse<PricingDeals>;
-    selectedClient: Client;
+    selectedClient: Client = { id: 'ford', name: 'Ford' };
 }

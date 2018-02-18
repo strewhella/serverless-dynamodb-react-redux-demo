@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { ActionCreators } from '../../state/ActionCreators';
 import { Container } from 'semantic-ui-react';
 import { ClientSelector } from '../ClientSelector/ClientSelector';
+import { ShoppingCart } from '../ShoppingCart/ShoppingCart';
 
 interface AppProps {
     state: AppState;
@@ -16,11 +17,20 @@ class App extends React.Component<AppProps> {
     render() {
         return (
             <Container className="App">
-                <ClientSelector
-                    selectedClient={this.props.state.selectedClient}
-                    dispatch={this.props.dispatch}
-                    clientsResponse={this.props.state.getClients}
-                />
+                {(!this.props.state.selectedClient && (
+                    <ClientSelector
+                        selectedClient={this.props.state.selectedClient}
+                        dispatch={this.props.dispatch}
+                        clientsResponse={this.props.state.getClients}
+                    />
+                )) || (
+                    <ShoppingCart
+                        client={this.props.state.selectedClient}
+                        productsResponse={this.props.state.getProducts}
+                        pricingDealsResponse={this.props.state.getPricingDeals}
+                        dispatch={this.props.dispatch}
+                    />
+                )}
             </Container>
         );
     }

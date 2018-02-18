@@ -1,0 +1,24 @@
+.ProductLine {
+    .ProductLine-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > div {
+            width: 100%;
+        }
+
+        .ProductLine-price {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .ProductLine-discount {
+            color: red;
+        }
+
+        .ProductLine-buttons {
+            text-align: right;
+        }
+    }
+}
