@@ -90,17 +90,23 @@ functions:
            path: /api/client
            method: GET
   
-  # getPricingRulesByClientId:
-  #   handler: handlers/getPricingRulesByClientId.default
-  #   events:
-  #     - http:
-  #          path: /api/pricing/{clientId}
-  #          method: GET
-  #          request:
-  #           parameters:
-  #             paths:
-  #               clientId: true
+  getProducts:
+    handler: handlers/getProducts.default
+    events:
+      - http:
+           path: /api/product
+           method: GET  
 
+  getPricingDealsByClientId:
+    handler: handlers/getPricingDealsByClientId.default
+    events:
+      - http:
+           path: /api/pricing-deal/{clientId}
+           method: GET
+           request:
+            parameters:
+              paths:
+                clientId: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

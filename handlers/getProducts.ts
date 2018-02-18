@@ -1,15 +1,15 @@
 import { Context, Callback } from 'aws-lambda';
-import { ClientService } from '../services/ClientService';
-import { Client } from '../db/models/Client';
 import { Response } from '../models/Response';
+import { Product } from '../db/models/Product';
+import { ProductService } from '../services/ProductService';
 
 export default (event, context: Context, callback: Callback) => {
-    let service = new ClientService();
+    let service = new ProductService();
 
     service
-        .getClients()
-        .then((clients: Array<Client>) => {
-            callback(null, Response.ok(clients));
+        .getProducts()
+        .then((products: Array<Product>) => {
+            callback(null, Response.ok(products));
         })
         .catch(() => {
             callback(null, Response.serviceUnavailable());

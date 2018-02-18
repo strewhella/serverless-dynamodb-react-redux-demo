@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk-mock');
 import getClients from '../handlers/getClients';
-import { Client } from '../models/Client';
+import { Client } from '../db/models/Client';
 import { Response } from '../models/Response';
 const createContext = require('aws-lambda-mock-context');
 

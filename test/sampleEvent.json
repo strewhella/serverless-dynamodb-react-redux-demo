@@ -1,0 +1,62 @@
+{
+    "event": {
+        "headers": {
+            "Host": "localhost:4000",
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1",
+            "User-Agent":
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36",
+            "Accept":
+                "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "en-US,en;q=0.9,cs;q=0.8"
+        },
+        "path": "/api/dump",
+        "pathParameters": null,
+        "requestContext": {
+            "accountId": "offlineContext_accountId",
+            "resourceId": "offlineContext_resourceId",
+            "apiId": "offlineContext_apiId",
+            "stage": "dev",
+            "requestId": "offlineContext_requestId_",
+            "identity": {
+                "cognitoIdentityPoolId": "offlineContext_cognitoIdentityPoolId",
+                "accountId": "offlineContext_accountId",
+                "cognitoIdentityId": "offlineContext_cognitoIdentityId",
+                "caller": "offlineContext_caller",
+                "apiKey": "offlineContext_apiKey",
+                "sourceIp": "127.0.0.1",
+                "cognitoAuthenticationType":
+                    "offlineContext_cognitoAuthenticationType",
+                "cognitoAuthenticationProvider":
+                    "offlineContext_cognitoAuthenticationProvider",
+                "userArn": "offlineContext_userArn",
+                "userAgent":
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36",
+                "user": "offlineContext_user"
+            },
+            "authorizer": {
+                "principalId": "offlineContext_authorizer_principalId"
+            },
+            "resourcePath": "/api/dump",
+            "httpMethod": "GET"
+        },
+        "resource": "/api/dump",
+        "httpMethod": "GET",
+        "queryStringParameters": null,
+        "stageVariables": null,
+        "body": null,
+        "isOffline": true
+    },
+    "context": {
+        "functionName": "checkout-dev-dump",
+        "functionVersion": "offline_functionVersion_for_checkout-dev-dump",
+        "invokedFunctionArn":
+            "offline_invokedFunctionArn_for_checkout-dev-dump",
+        "awsRequestId": "offline_awsRequestId_53418270176789",
+        "logGroupName": "offline_logGroupName_for_checkout-dev-dump",
+        "logStreamName": "offline_logStreamName_for_checkout-dev-dump",
+        "identity": {},
+        "clientContext": {}
+    }
+}
