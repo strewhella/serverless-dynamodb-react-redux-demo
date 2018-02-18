@@ -28,6 +28,8 @@ class App extends React.Component<AppProps> {
                         client={this.props.state.selectedClient}
                         productsResponse={this.props.state.getProducts}
                         pricingDealsResponse={this.props.state.getPricingDeals}
+                        total={this.props.state.total}
+                        shoppingCart={this.props.state.shoppingCart}
                         dispatch={this.props.dispatch}
                     />
                 )}

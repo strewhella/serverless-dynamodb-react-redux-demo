@@ -3,6 +3,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px;
 
         > div {
             width: 100%;
@@ -19,6 +20,11 @@
 
         .ProductLine-buttons {
             text-align: right;
+        }
+
+        .ProductLine-quantity {
+            margin-left: 20px;
+            width: 80px;
         }
     }
 }

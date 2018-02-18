@@ -1,6 +1,27 @@
 import { Client } from '../../../server/db/models/Client';
+import { Product } from '../../../server/db/models/Product';
 
 export class ActionCreators {
+    addItem = (item: Product) => {
+        return {
+            type: 'addItem',
+            item
+        };
+    };
+
+    removeItem = (item: Product) => {
+        return {
+            type: 'removeItem',
+            item
+        };
+    };
+
+    resetCart = () => {
+        return {
+            type: 'resetCart'
+        };
+    };
+
     getClients = () => {
         return {
             type: 'getClients',

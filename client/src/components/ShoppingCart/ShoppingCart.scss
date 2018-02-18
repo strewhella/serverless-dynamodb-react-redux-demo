@@ -4,12 +4,15 @@
     align-items: center;
 
     .ShoppingCart-cart {
-        min-width: 400px;
-        max-width: 500px;
+        min-width: 650px;
         padding: 10px;
     }
 
     .ShoppingCart-sign-out {
         float: right;
+    }
+
+    .ShoppingCart-total {
+        padding: 14px;
     }
 }

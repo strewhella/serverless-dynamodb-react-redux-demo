@@ -7,5 +7,13 @@ export class AppState {
     getClients: HttpResponse<Array<Client>>;
     getProducts: HttpResponse<Array<Product>>;
     getPricingDeals: HttpResponse<PricingDeals>;
-    selectedClient: Client = { id: 'ford', name: 'Ford' };
+    selectedClient: Client;
+    shoppingCart: { [sku: string]: number };
+    total: number;
+
+    constructor() {
+        this.selectedClient = { id: 'ford', name: 'Ford' };
+        this.shoppingCart = {};
+        this.total = 0;
+    }
 }
