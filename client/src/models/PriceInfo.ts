@@ -4,7 +4,6 @@ import { QuantityDiscountDeal } from '../../../server/db/models/QuantityDiscount
 export interface PriceInfo {
     price: number;
     discount: number;
-    discounted?: boolean;
     cheaperQuantity?: CheaperQuantityDeal;
     quantityDiscount?: QuantityDiscountDeal;
 }

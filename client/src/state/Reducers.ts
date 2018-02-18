@@ -3,7 +3,7 @@ import { AppState } from './AppState';
 import * as Redux from 'redux';
 import { Product } from '../../../server/db/models/Product';
 import { Checkout } from '../cart/Checkout';
-import pricingDealFilter from '../cart/deals/pricingDealFilter';
+import { filterPricingDealsByClientId } from '../cart/deals/pricingDealFilter';
 
 export class Reducers {
     addItem(state: AppState, { item }: { item: Product }): AppState {
@@ -21,15 +21,11 @@ export class Reducers {
     calculateTotal(state: AppState): AppState {
         let newState = { ...state };
 
-        let pricingDeals = pricingDealFilter(
+        let pricingDeals = filterPricingDealsByClientId(
             newState.getPricingDeals.body,
             newState.selectedClient.id
         );
-        let checkout = new Checkout(
-            state.getProducts.body,
-            pricingDeals,
-            Checkout.configuredProcessors()
-        );
+        let checkout = new Checkout(state.getProducts.body, pricingDeals);
 
         Object.keys(newState.shoppingCart).forEach(sku =>
             checkout.add(sku, newState.shoppingCart[sku])

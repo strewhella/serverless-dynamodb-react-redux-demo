@@ -5,10 +5,13 @@ import { PricingDeals } from '../../../../server/models/PricingDeals';
 import { HttpResponse } from '../../models/HttpResponse';
 import { Product } from '../../../../server/db/models/Product';
 import { HttpLoader } from '../Loader/Loader';
-import { Button, Segment, Header, Icon } from 'semantic-ui-react';
+import { Button, Segment, Header, Icon, Label } from 'semantic-ui-react';
 import { PriceInfo } from '../../models/PriceInfo';
 import { ProductLine } from '../ProductLine/ProductLine';
 import './ShoppingCart.css';
+import { findProductDealsBySku } from '../../cart/deals/pricingDealFilter';
+import { DiscountDealProcessor } from '../../cart/deals/DiscountDealProcessor';
+import { Checkout } from '../../cart/Checkout';
 
 interface ShoppingCartProps {
     client: Client;
@@ -33,28 +36,12 @@ export class ShoppingCart extends React.Component<ShoppingCartProps> {
             return { price: product.price, discount: 0 };
         }
 
-        let {
-            cheaperQuantitiesDeals,
-            quantityDiscountDeals,
-            discountDeals
-        } = this.props.pricingDealsResponse.body;
-
-        let discountDeal = discountDeals.find(d => d.sku === product.sku);
-
-        let priceInfo = {
-            price: discountDeal ? discountDeal.discountedPrice : product.price,
-            discount: Math.abs(
-                discountDeal ? product.price - discountDeal.discountedPrice : 0
-            ),
-            cheaperQuantity: cheaperQuantitiesDeals.find(
-                c => c.sku === product.sku
-            ),
-            quantityDiscount: quantityDiscountDeals.find(
-                c => c.sku === product.sku
-            )
-        };
-
-        return priceInfo;
+        let checkout = new Checkout(
+            this.props.productsResponse.body,
+            this.props.pricingDealsResponse.body
+        );
+        checkout.add(product.sku, this.props.shoppingCart[product.sku]);
+        return checkout.getPriceInfo(product.sku);
     }
 
     sortProducts(): void {
@@ -85,6 +72,14 @@ export class ShoppingCart extends React.Component<ShoppingCartProps> {
                     text="Fetching pricing information..."
                 >
                     <Segment.Group className="ShoppingCart-cart">
+                        <Label
+                            ribbon
+                            color="blue"
+                            size="big"
+                            className="ShoppingCart-user"
+                        >
+                            Logged in as {this.props.client.name}
+                        </Label>
                         <Button
                             className="ShoppingCart-sign-out"
                             onClick={this.signOut}
