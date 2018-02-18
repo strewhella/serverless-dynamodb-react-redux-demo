@@ -1,5 +1,4 @@
-import { ProductDeals } from '../models/ProductDeals';
-import { Product } from '../db/models/Product';
+import { ProductDeals } from '../../models/ProductDeals';
 
 export class DealProcessor {
     calculateUnitPrice(

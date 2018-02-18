@@ -1,7 +1,10 @@
-import { PricingDeals } from '../models/PricingDeals';
-import { Product } from '../db/models/Product';
+import { Product } from '../../../server/db/models/Product';
 import { ProductDeals } from '../models/ProductDeals';
-import { DealProcessor } from '../deals/DealProcessor';
+import { DealProcessor } from './deals/DealProcessor';
+import { DiscountDealProcessor } from './deals/DiscountDealProcessor';
+import { CheaperQuantityDealProcessor } from './deals/CheaperQuantityDealProcessor';
+import { QuantityDiscountDealProcessor } from './deals/QuantityDiscountDealProcessor';
+import { PricingDeals } from '../../../server/models/PricingDeals';
 
 export class Checkout {
     private cart: { [sku: string]: number };
@@ -9,9 +12,18 @@ export class Checkout {
     constructor(
         private products: Array<Product>,
         private pricingDeals: PricingDeals,
-        private processors: Array<DealProcessor> = []
+        private processors?: Array<DealProcessor>
     ) {
         this.cart = {};
+        processors = processors || Checkout.configuredProcessors();
+    }
+
+    static configuredProcessors(): Array<DealProcessor> {
+        return [
+            new DiscountDealProcessor(),
+            new CheaperQuantityDealProcessor(),
+            new QuantityDiscountDealProcessor()
+        ];
     }
 
     getTotal(): number {
@@ -60,12 +72,12 @@ export class Checkout {
             quantityDiscountDeals
         } = this.pricingDeals;
 
-        let filter = d => d.sku === sku;
-
         return {
-            discountDeal: discountDeals.find(filter),
-            cheaperQuantitiesDeal: cheaperQuantitiesDeals.find(filter),
-            quantityDiscountDeal: quantityDiscountDeals.find(filter)
+            discountDeal: discountDeals.find(d => d.sku === sku),
+            cheaperQuantitiesDeal: cheaperQuantitiesDeals.find(
+                d => d.sku === sku
+            ),
+            quantityDiscountDeal: quantityDiscountDeals.find(d => d.sku === sku)
         };
     }
 }

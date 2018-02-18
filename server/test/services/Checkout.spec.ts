@@ -5,29 +5,17 @@ import { QuantityDiscountDealProcessor } from '../../deals/QuantityDiscountDealP
 import { Product } from '../../db/models/Product';
 import { PricingDeals } from '../../models/PricingDeals';
 import { DealProcessor } from '../../deals/DealProcessor';
+import pricingDealFilter from '../../services/pricingDealFilter';
 
 let checkout: Checkout;
 let processors: Array<DealProcessor>;
 let allPricingDeals: PricingDeals;
 let products: Array<Product>;
 
-const getPricingDealsByClientId = (clientId: string) => {
-    let filter = d => d.clientId === clientId;
-    return {
-        discountDeals: allPricingDeals.discountDeals.filter(filter),
-        cheaperQuantitiesDeals: allPricingDeals.cheaperQuantitiesDeals.filter(
-            filter
-        ),
-        quantityDiscountDeals: allPricingDeals.quantityDiscountDeals.filter(
-            filter
-        )
-    };
-};
-
 const createCheckout = (clientId: string) => {
     return new Checkout(
         products,
-        getPricingDealsByClientId(clientId),
+        pricingDealFilter(allPricingDeals, clientId),
         processors
     );
 };

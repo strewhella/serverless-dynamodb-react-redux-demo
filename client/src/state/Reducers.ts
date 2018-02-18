@@ -2,6 +2,8 @@ import { Client } from '../../../server/db/models/Client';
 import { AppState } from './AppState';
 import * as Redux from 'redux';
 import { Product } from '../../../server/db/models/Product';
+import { Checkout } from '../cart/Checkout';
+import pricingDealFilter from '../cart/deals/pricingDealFilter';
 
 export class Reducers {
     addItem(state: AppState, { item }: { item: Product }): AppState {
@@ -12,6 +14,28 @@ export class Reducers {
         } else {
             newState.shoppingCart[item.sku] = 1;
         }
+
+        return this.calculateTotal(newState);
+    }
+
+    calculateTotal(state: AppState): AppState {
+        let newState = { ...state };
+
+        let pricingDeals = pricingDealFilter(
+            newState.getPricingDeals.body,
+            newState.selectedClient.id
+        );
+        let checkout = new Checkout(
+            state.getProducts.body,
+            pricingDeals,
+            Checkout.configuredProcessors()
+        );
+
+        Object.keys(newState.shoppingCart).forEach(sku =>
+            checkout.add(sku, newState.shoppingCart[sku])
+        );
+        newState.total = checkout.getTotal();
+
         return newState;
     }
 
@@ -26,7 +50,8 @@ export class Reducers {
         } else {
             newState.shoppingCart[item.sku] = 0;
         }
-        return newState;
+
+        return this.calculateTotal(newState);
     }
 
     selectClient(state: AppState, { client }: { client: Client }): AppState {

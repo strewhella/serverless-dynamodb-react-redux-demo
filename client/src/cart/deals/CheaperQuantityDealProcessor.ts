@@ -1,5 +1,5 @@
 import { DealProcessor } from './DealProcessor';
-import { ProductDeals } from '../models/ProductDeals';
+import { ProductDeals } from '../../models/ProductDeals';
 
 export class CheaperQuantityDealProcessor extends DealProcessor {
     calculateChargeQuantity(deals: ProductDeals, quantity: number): number {
