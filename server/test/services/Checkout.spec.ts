@@ -1,11 +1,11 @@
-import { Checkout } from '../../services/Checkout';
-import { DiscountDealProcessor } from '../../deals/DiscountDealProcessor';
-import { CheaperQuantityDealProcessor } from '../../deals/CheaprQuantityDealProcessor';
-import { QuantityDiscountDealProcessor } from '../../deals/QuantityDiscountDealProcessor';
+import { Checkout } from '../../../client/src/cart/Checkout';
+import { DiscountDealProcessor } from '../../../client/src/cart/deals/DiscountDealProcessor';
+import { CheaperQuantityDealProcessor } from '../../../client/src/cart/deals/CheaperQuantityDealProcessor';
+import { QuantityDiscountDealProcessor } from '../../../client/src/cart/deals/QuantityDiscountDealProcessor';
 import { Product } from '../../db/models/Product';
 import { PricingDeals } from '../../models/PricingDeals';
-import { DealProcessor } from '../../deals/DealProcessor';
-import pricingDealFilter from '../../services/pricingDealFilter';
+import { DealProcessor } from '../../../client/src/cart/deals/DealProcessor';
+import pricingDealFilter from '../../../client/src/cart/deals/pricingDealFilter';
 
 let checkout: Checkout;
 let processors: Array<DealProcessor>;

@@ -1,5 +1,5 @@
-import { ProductDeals } from '../../models/ProductDeals';
-import { DiscountDealProcessor } from '../../deals/DiscountDealProcessor';
+import { ProductDeals } from '../../../client/src/models/ProductDeals';
+import { DiscountDealProcessor } from '../../../client/src/cart/deals/DiscountDealProcessor';
 
 let processor: DiscountDealProcessor;
 let deals: ProductDeals;
