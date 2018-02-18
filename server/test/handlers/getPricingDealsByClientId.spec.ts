@@ -1,8 +1,8 @@
 const AWS = require('aws-sdk-mock');
-import { Response } from '../models/Response';
-import { PricingDeals } from '../models/PricingDeals';
+import { Response } from '../../models/Response';
+import { PricingDeals } from '../../models/PricingDeals';
 import { DynamoDB } from 'aws-sdk';
-import getPricingDealsByClientId from '../handlers/getPricingDealsByClientId';
+import getPricingDealsByClientId from '../../handlers/getPricingDealsByClientId';
 import { APIGatewayEvent } from 'aws-lambda';
 const createContext = require('aws-lambda-mock-context');
 
@@ -19,9 +19,9 @@ const createEvent = (): APIGatewayEvent => {
 beforeEach(() => {
     context = createContext();
     pricingDeals = {
-        discountDeals: require('../db/seed/discountDeals.json'),
-        cheaperQuantitiesDeals: require('../db/seed/cheaperQuantitiesDeals.json'),
-        quantityDiscountDeals: require('../db/seed/quantityDiscountDeals.json')
+        discountDeals: require('../../db/seed/discountDeals.json'),
+        cheaperQuantitiesDeals: require('../../db/seed/cheaperQuantitiesDeals.json'),
+        quantityDiscountDeals: require('../../db/seed/quantityDiscountDeals.json')
     };
 
     AWS.mock(

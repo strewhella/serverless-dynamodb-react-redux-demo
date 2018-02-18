@@ -1,6 +1,6 @@
 export interface CheaperQuantityDeal {
-    sku: string;
-    clientId: string;
+    sku?: string;
+    clientId?: string;
     purchasedQuantity: number;
     chargedQuantity: number;
 }

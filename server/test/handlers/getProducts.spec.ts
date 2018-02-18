@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk-mock');
-import { Response } from '../models/Response';
-import { Product } from '../db/models/Product';
-import getProducts from '../handlers/getProducts';
+import { Response } from '../../models/Response';
+import { Product } from '../../db/models/Product';
+import getProducts from '../../handlers/getProducts';
 const createContext = require('aws-lambda-mock-context');
 
 let context: AWSLambda.Context;
@@ -9,7 +9,7 @@ let products: Array<Product>;
 
 beforeEach(() => {
     context = createContext();
-    products = require('../db/seed/products.json');
+    products = require('../../db/seed/products.json');
 
     AWS.mock('DynamoDB.DocumentClient', 'scan', (params, callback) => {
         callback(null, { Items: products });

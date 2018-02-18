@@ -68,6 +68,7 @@ export class ShoppingCart extends React.Component<ShoppingCartProps> {
     }
 
     signOut = () => {
+        this.props.dispatch.getClients();
         this.props.dispatch.resetCart();
         this.props.dispatch.selectClient();
     };
