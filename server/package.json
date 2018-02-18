@@ -15,10 +15,7 @@
     "dependencies": {
         "@types/aws-lambda": "0.0.32",
         "aws-lambda": "^0.1.2",
-        "aws-sdk": "^2.197.0",
-        "serverless-webpack": "^4.3.0",
-        "ts-loader": "^3.5.0",
-        "webpack": "^3.11.0"
+        "aws-sdk": "^2.197.0"
     },
     "devDependencies": {
         "@types/aws-lambda-mock-context": "^1.0.2",
@@ -31,15 +28,24 @@
         "serverless-dynamodb-local": "^0.2.27",
         "serverless-offline": "^3.17.0",
         "ts-jest": "^22.0.4",
-        "uuid": "^3.2.1"
+        "uuid": "^3.2.1",
+        "serverless-webpack": "^4.3.0",
+        "ts-loader": "^3.5.0",
+        "webpack": "^3.11.0"
     },
     "prettier": {
         "tabWidth": 4,
         "singleQuote": true
     },
     "jest": {
-        "testPathIgnorePatterns": ["/node_modules/"],
-        "moduleFileExtensions": ["ts", "tsx", "js"],
+        "testPathIgnorePatterns": [
+            "/node_modules/"
+        ],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
         "transform": {
             "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
         },
