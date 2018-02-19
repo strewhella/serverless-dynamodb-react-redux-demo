@@ -25,16 +25,14 @@
     },
     "scripts": {
         "build-css": "node-sass-chokidar client/src/ -o client/src/",
-        "watch-css":
-            "npm run build-css && node-sass-chokidar client/src/ -o client/src/ --watch --recursive",
+        "watch-css": "npm run build-css && node-sass-chokidar client/src/ -o client/src/ --watch --recursive",
         "start-js": "cd client && react-scripts-ts start",
         "start-client": "npm-run-all -p watch-css start-js",
         "build-js": "cd client && react-scripts-ts build",
         "build": "npm-run-all build-css build-js",
         "test": "jest",
         "eject": "react-scripts-ts eject",
-        "start-server":
-            "cd server && sls dynamodb install && sls offline start",
+        "start-server": "cd server && sls dynamodb install && sls offline start",
         "start": "npm i && run-p start-server start-client"
     },
     "devDependencies": {
@@ -67,8 +65,14 @@
     "author": "",
     "license": "ISC",
     "jest": {
-        "testPathIgnorePatterns": ["/node_modules/"],
-        "moduleFileExtensions": ["ts", "tsx", "js"],
+        "testPathIgnorePatterns": [
+            "/node_modules/"
+        ],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
         "transform": {
             "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
         },

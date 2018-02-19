@@ -10,7 +10,7 @@ export const httpMiddleware = (store: Redux.Store<AppState>) => (
     if (action.method && action.url) {
         store.dispatch(actions.httpLoading(action.type));
 
-        fetch('http://localhost:4000' + action.url, {
+        fetch(action.url, {
             method: action.method,
             body: JSON.stringify(action.body),
             headers: new Headers({
