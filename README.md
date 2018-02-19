@@ -12,7 +12,11 @@ This will install all the dependencies and then start the server and client. The
 
 If on Windows
 
-In one Command window navigate to the `client` folder and run
+In one Command window run
+
+`npm i`
+
+then navigate to the `client` folder and run
 
 `npm start`
 
