@@ -24,14 +24,17 @@ export class ClientSelector extends React.Component<ClientSelectorProps> {
                     response={this.props.clientsResponse}
                     text="Fetching clients..."
                 >
-                    <Container textAlign="center">
+                    <Container
+                        textAlign="center"
+                        className="ClientSelector-container"
+                    >
                         <div>
                             <Header as="h1" icon>
                                 <Icon name="users" circular />
                                 <Header.Content>Login</Header.Content>
                             </Header>
                         </div>
-                        <Button.Group>
+                        <Button.Group className="ClientSelector-client-buttons">
                             {this.props.clientsResponse &&
                                 this.props.clientsResponse.body &&
                                 this.props.clientsResponse.body

@@ -12,7 +12,6 @@ export class AppState {
     total: number;
 
     constructor() {
-        this.selectedClient = { id: 'ford', name: 'Ford' };
         this.shoppingCart = {};
         this.total = 0;
     }

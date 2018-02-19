@@ -5,7 +5,7 @@ import { QuantityDiscountDealProcessor } from '../../../client/src/cart/deals/Qu
 import { Product } from '../../db/models/Product';
 import { PricingDeals } from '../../models/PricingDeals';
 import { DealProcessor } from '../../../client/src/cart/deals/DealProcessor';
-import pricingDealFilter from '../../../client/src/cart/deals/pricingDealFilter';
+import { filterPricingDealsByClientId } from '../../../client/src/cart/deals/pricingDealFilter';
 
 let checkout: Checkout;
 let processors: Array<DealProcessor>;
@@ -15,7 +15,7 @@ let products: Array<Product>;
 const createCheckout = (clientId: string) => {
     return new Checkout(
         products,
-        pricingDealFilter(allPricingDeals, clientId),
+        filterPricingDealsByClientId(allPricingDeals, clientId),
         processors
     );
 };

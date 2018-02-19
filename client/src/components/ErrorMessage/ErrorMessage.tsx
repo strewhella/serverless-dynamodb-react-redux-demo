@@ -8,7 +8,7 @@ interface ErrorMessageProps {
 
 export const ErrorMessage = (props: ErrorMessageProps) => {
     return (
-        <Message>
+        <Message style={{ marginTop: '100px' }}>
             {props.heading && <Message.Header>{props.heading}</Message.Header>}
             <p>{props.message}</p>
         </Message>

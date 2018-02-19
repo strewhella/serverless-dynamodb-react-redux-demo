@@ -112,7 +112,7 @@ export class ShoppingCart extends React.Component<ShoppingCartProps> {
                                 )}
                         </Segment.Group>
                         <Segment.Group className="ShoppingCart-total">
-                            <Header as="h2" textAlign="right">
+                            <Header as="div" textAlign="right" size="large">
                                 Total&nbsp;&nbsp;&nbsp;${this.props.total.toFixed(
                                     2
                                 )}
