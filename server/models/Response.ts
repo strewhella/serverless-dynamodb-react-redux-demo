@@ -1,11 +1,15 @@
 export class Response<T> {
     statusCode: number;
-    body?: T;
+    body?: string;
+    headers?: { [header: string]: string };
 
     static ok<T>(data?: T): Response<T> {
         return {
             statusCode: 200,
-            body: data
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(data)
         };
     }
 
