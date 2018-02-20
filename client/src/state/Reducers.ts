@@ -53,6 +53,7 @@ export class Reducers {
     selectClient(state: AppState, { client }: { client: Client }): AppState {
         let newState = { ...state };
         newState.selectedClient = client;
+        newState.total = 0;
         return newState;
     }
 
